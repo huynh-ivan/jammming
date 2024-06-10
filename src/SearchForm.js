@@ -1,5 +1,6 @@
 import React from "react";
 import SearchBar from "./SearchBar/SearchBar";
+import SearchBtn from "./SearchBtn/SearchBtn";
 
 function SearchForm() {
   // I think state should be managed by the form element?
