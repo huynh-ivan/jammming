@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import SearchForm from '../SearchForm';
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchBtn from './SearchBtn';
+import { mockTracks } from '../MockData';
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
+  const [queryResults, setQueryResults] = useState([])
+
   // Define the handleChange handler for SearchBar here
   handleChange = (event) => {
     setUserQuery(event.target.value);
@@ -17,6 +17,7 @@ function App() {
     event.preventDefault(); // prevent the default behavior
     // submit should make a POST call to the spotify API 
     // receive the response
+    setQueryResults(mockTracks);
     // parse the response
     // store the response
   }
