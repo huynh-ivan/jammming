@@ -2,12 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import SearchForm from '../SearchForm';
 import React, { useState } from 'react';
-import SearchBar from '../SearchBar/SearchBar';
-import SearchBtn from '../SearchBtn/SearchBtn';
+import SearchBar from './SearchBar';
+import SearchBtn from './SearchBtn';
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
-
   // Define the handleChange handler for SearchBar here
   handleChange = (event) => {
     setUserQuery(event.target.value);
@@ -26,7 +25,7 @@ function App() {
     <div>
       <form onSubmit={handleSubmit}>
         <h1>Jammming!</h1>
-        <SearchBar value={queryString} onChange={handleChange} />
+        <SearchBar value={userQuery} onChange={handleChange} />
         <SearchBtn />
       </form>
       <Tracklist />
