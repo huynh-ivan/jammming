@@ -1,14 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 import SearchForm from '../SearchForm';
-import React from 'react';
+import React, { useState } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchBtn from '../SearchBtn/SearchBtn';
 
 function App() {
-  // SearchForm state managed here
+  const [userQuery, setUserQuery] = useState('')
+
+  // Define the handleChange handler for SearchBar here
+  handleChange = (event) => {
+    setUserQuery(event.target.value);
+  }
+
+  // Define the handleSubmit handler here
+  handleSubmit = (event) => {
+    event.preventDefault(); // prevent the default behavior
+    // submit should make a POST call to the spotify API 
+    // receive the response
+    // parse the response
+    // store the response
+  }
+
   return (
     <>
-      <SearchForm />
-      <SearchResults />
+      <form onSubmit={handleSubmit}>
+        <h1>Jammming!</h1>
+        <SearchBar value={queryString} onChange={handleChange} />
+        <SearchBtn />
+      </form>
+      <Tracklist />
       <Playlist />
     </>
   );
