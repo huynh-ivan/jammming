@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit}>
         <h1>Jammming!</h1>
         <SearchBar value={queryString} onChange={handleChange} />
@@ -31,7 +31,7 @@ function App() {
       </form>
       <Tracklist />
       <Playlist />
-    </>
+    </div>
   );
 }
 
