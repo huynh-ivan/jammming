@@ -9,4 +9,4 @@ function SearchBtn({ onSubmit }) {
   )
 }
 
-export default SearchBtn();
+export default SearchBtn;
