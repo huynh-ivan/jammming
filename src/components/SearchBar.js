@@ -1,12 +1,15 @@
 import React from "react";
 
-function SearchBar({ value, onChange }) {
+function SearchBar(props) {
   //stateless componenet
   return (
-    <div className="searchbar-container">
-      <input type="search" placeholder="Search for a song!" value={value} onChange={onChange}>{value}</input>
-    </div>
+    <input
+      type="search"
+      placeholder="Search for a song!"
+      value={props.userQuery}
+      onChange={props.handleChange}>
+    </input>
   );
 }
 
-export default SearchBar();
+export default SearchBar;
