@@ -1,10 +1,9 @@
 import React from "react";
 
-function SearchBtn({ onSubmit }) {
-  //SearchBtn receives onSubmit as props
+function SearchBtn({ type }) {
   return (
     <div className="render-container">
-      <button type="submit">Search</button>
+      <button type={type}>Search</button>
     </div>
   )
 }

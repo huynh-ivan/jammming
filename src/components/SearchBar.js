@@ -1,17 +1,17 @@
 import React from "react";
 
-function SearchBar({ userQuery, onChange }) {
+function SearchBar({ type, userQuery, onChange }) {
   const handleChange = (event) => {
-    onChange(event.target.value)
-    console.log('the current value is', userQuery);
+    console.log(event.target.value);
+    onChange(event.target.value);
   }
 
   return (
     <input
-      type="search"
-      placeholder="Search for a song!"
+      type={type}
       value={userQuery}
       onChange={handleChange}
+      placeholder="Search for a song!"
     />
   );
 }

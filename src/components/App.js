@@ -1,36 +1,28 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchBtn from './SearchBtn';
-import { mockTracks } from '../MockData';
+import { mockTracks } from '../MockData/MockData';
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
   const [queryResults, setQueryResults] = useState([])
 
-  // Define the handleChange handler for SearchBar here
-  handleChange = (event) => {
-    setUserQuery(event.target.value);
-  }
-
-  // Define the handleSubmit handler here
-  handleSubmit = (event) => {
-    event.preventDefault(); // prevent the default behavior
-    // submit should make a POST call to the spotify API 
-    // receive the response
+  const handleSubmit = (event) => {
+    event.preventDefault();
     setQueryResults(mockTracks);
-    // parse the response
-    // store the response
+    console.log(queryResults);
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <h1>Jammming!</h1>
-        <SearchBar value={userQuery} onChange={handleChange} />
-        <SearchBtn />
+        <SearchBar
+          type="Search"
+          userQuery={userQuery}
+          onChange={setUserQuery} />
+        <SearchBtn type="submit" />
       </form>
-      <Tracklist />
-      <Playlist />
     </div>
   );
 }
