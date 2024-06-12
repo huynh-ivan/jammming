@@ -3,109 +3,109 @@ const mockTracks = [
     trackName: 'All You Need to Know',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: trackArtist + 0
+    id: 0
   },
   {
     trackName: 'Need Your Love',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: trackArtist + 1
+    id: 1
   },
   {
     trackName: 'Tie Me Down',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: trackArtist + 2
+    id: 2
   },
   {
     trackName: 'Nothing Like You',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: trackArtist + 3
+    id: 3
   },
   {
     trackName: 'Body Back',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: trackArtist + 4
+    id: 4
   },
   {
     trackName: 'Body Back',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: trackArtist + 5
+    id: 5
   },
   {
     trackName: 'Lose Somebody',
     trackArtist: 'Kygo',
     trackAlbum: 'Golden Hour',
-    id: trackArtist + 0
+    id: 6
   },
   {
     trackName: 'Feels like Forever',
     trackArtist: 'Kygo',
     trackAlbum: 'Golden Hour',
-    id: trackArtist + 1
+    id: 7
   },
   {
     trackName: 'Freedom',
     trackArtist: 'Kygo ft. Zak Abel',
     trackAlbum: 'Golden Hour',
-    id: trackArtist + 2
+    id: 8
   },
   {
     trackName: 'Broken Glass',
     trackArtist: 'Kygo',
     trackAlbum: 'Golden Hour',
-    id: trackArtist + 3
+    id: 9
   },
   {
     trackName: 'How would I know',
     trackArtist: 'Kygo',
     trackAlbum: 'Golden Hour',
-    id: trackArtist + 4
+    id: 10
   },
   {
     trackName: 'Higher Love',
     trackArtist: 'Kygo',
     trackAlbum: 'Golden Hour',
-    id: trackArtist + 5
+    id: 11
   },
   {
     trackName: 'Crawl outta love',
     trackArtist: 'Illenium',
     trackAlbum: 'Awake',
-    id: trackArtist + 0
+    id: 12
   },
   {
     trackName: 'Needed You',
     trackArtist: 'Illenium',
     trackAlbum: 'Awake',
-    id: trackArtist + 1
+    id: 13
   },
   {
     trackName: 'Fractures',
     trackArtist: 'Illenium',
     trackAlbum: 'Awake',
-    id: trackArtist + 2
+    id: 14
   },
   {
     trackName: 'Leavin',
     trackArtist: 'Illenium',
     trackAlbum: 'Awake',
-    id: trackArtist + 3
+    id: 15
   },
   {
     trackName: 'Freefall',
     trackArtist: 'Illenium',
     trackAlbum: 'Awake',
-    id: trackArtist + 4
+    id: 16
   },
   {
     trackName: 'Lost',
     trackArtist: 'Illenium',
     trackAlbum: 'Awake',
-    id: trackArtist + 5
+    id: 17
   },
 ]
 
