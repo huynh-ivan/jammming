@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchBtn from './SearchBtn';
+import Track from './Track';
 import { mockTracks } from '../MockData/MockData';
 
 function App() {
@@ -9,8 +10,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setQueryResults(mockTracks);
-    console.log(queryResults);
+    setQueryResults(mockTracks)
   }
 
   return (
@@ -23,6 +23,19 @@ function App() {
           onChange={setUserQuery} />
         <SearchBtn type="submit" />
       </form>
+      <div className='Results'>
+        <h3>Results</h3>
+        <ul>
+          {
+            queryResults.map((track) => (
+              <Track key="{track.id}"
+                name={track.trackName}
+                artist={track.trackArtist}
+                album={track.trackAlbum}
+              />
+            ))}
+        </ul>
+      </div>
     </div>
   );
 }
