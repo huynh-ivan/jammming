@@ -8,6 +8,7 @@ import { mockTracks } from '../MockData/MockData';
 function App() {
   const [userQuery, setUserQuery] = useState('')
   const [queryResults, setQueryResults] = useState([])
+  const [playlistState, setPlaylistState] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +27,11 @@ function App() {
       </form>
       <div className='Results'>
         <h3>Results</h3>
-        <Tracklist results={queryResults} />
+        <Tracklist results={queryResults} addToPlaylist={setPlaylistState} />
+      </div>
+      <div className='Playlist'>
+        <h3>Playlist</h3>
+        <Playlist playlistState={playlist} removeFromPlaylist={setPlaylistState} />
       </div>
     </div>
   );
