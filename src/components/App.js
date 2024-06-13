@@ -28,11 +28,11 @@ function App() {
       </form>
       <div className='Results'>
         <h3>Results</h3>
-        <Tracklist results={tracklistState} addToPlaylist={setPlaylistState} />
+        <Tracklist tracklistState={tracklistState} />
       </div>
       <div className='playlist'>
         <h3>Playlist</h3>
-        <Playlist playlistState={playlistState} removeFromPlaylist={setPlaylistState} />
+        <Playlist playlistState={playlistState} setter={setPlaylistState} />
       </div>
     </div>
   );
