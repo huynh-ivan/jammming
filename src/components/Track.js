@@ -1,11 +1,12 @@
 import React from "react";
+import Playlist from "./Playlist";
 
-function Track(props) {
+function Track({ key, name, artist, album }) {
   return (
-    <li key={props.key}>
-      <h4>{props.name}</h4>
-      <p>{props.artist}</p>
-      <p>{props.album}</p>
+    <li key={key}>
+      <h4>{name}</h4>
+      <p>{artist}</p>
+      <p>{album}</p>
     </li>
   )
 }
