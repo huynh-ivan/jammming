@@ -1,16 +1,13 @@
 import React from "react";
-import Track from "./Track";
+import TrackContainer from "./TrackContainer";
 
-function Tracklist({ results }) {
+//receive state from App.js
+function Tracklist({ tracklistState }) {
   return (
     <ul>
-      {results.map(result => {
+      {tracklistState.map(item => {
         return (
-          <Track
-            key={result.id}
-            name={result.trackName}
-            artist={result.trackArtist}
-            album={result.trackAlbum} />
+          <TrackContainer key={item.id} track={item} />
         )
       })
       }

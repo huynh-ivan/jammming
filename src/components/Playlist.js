@@ -1,24 +1,17 @@
 import React from "react";
-import Track from "./Track";
+import TrackContainer from "./TrackContainer";
 
-function Playlist({ playlistState, removeFromPlaylist }) {
-  // if I import Track into Playlist, it's state should inherit from the parent, 
+function Playlist({ playlistState }) {
   return (
     <div>
       <ul>
-        {playlistState.map(track => {
+        {playlistState.map(item => {
           return (
-            <Track
-              key={track.id}
-              name={track.trackName}
-              artist={track.trackArtist}
-              album={track.album}
-            />
+            <TrackContainer key={item.id} track={item} />
           )
         })
         }
       </ul>
-      {/* <SavePlaylistButton /> */}
     </div>
   )
 }
