@@ -11,8 +11,7 @@ function SearchBar({ type, userQuery, onChange }) {
       type={type}
       value={userQuery}
       onChange={handleChange}
-      placeholder="Search for a song!"
-    />
+      placeholder="Search for a song!" />
   );
 }
 
