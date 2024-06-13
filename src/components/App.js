@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchBtn from './SearchBtn';
-import Track from './Track';
+import Tracklist from './Tracklist';
 import { mockTracks } from '../MockData/MockData';
+
 
 function App() {
   const [userQuery, setUserQuery] = useState('')
@@ -25,16 +26,7 @@ function App() {
       </form>
       <div className='Results'>
         <h3>Results</h3>
-        <ul>
-          {
-            queryResults.map((track) => (
-              <Track key="{track.id}"
-                name={track.trackName}
-                artist={track.trackArtist}
-                album={track.trackAlbum}
-              />
-            ))}
-        </ul>
+        <Tracklist results={queryResults} />
       </div>
     </div>
   );
