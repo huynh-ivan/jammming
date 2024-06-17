@@ -1,13 +1,22 @@
 import React from "react";
+import Track from "./Track";
 import TrackContainer from "./TrackContainer";
 
+//Expect playlistState from App.js
 function Playlist({ playlistState }) {
   return (
     <div>
       <ul>
         {playlistState.map(item => {
           return (
-            <TrackContainer key={item.id} track={item} />
+            <li>
+              <div className="trackContainer">
+                <Track
+                  name={item.trackName}
+                  artist={item.trackArtist}
+                  album={item.trackAlbum} />
+              </div>
+            </li>
           )
         })
         }
