@@ -1,9 +1,9 @@
 import React from "react";
 import Track from "./Track";
-import TrackContainer from "./TrackContainer";
+
 
 //receive state from App.js
-function Tracklist({ tracklistState }) {
+function Tracklist({ tracklistState, setTrackListState }) {
   // track containers in the Tracklist should update the state of the playlist
 
   // need to pass tracklist an "Add to playlist" handler

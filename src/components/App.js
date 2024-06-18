@@ -28,7 +28,7 @@ function App() {
       </form>
       <div className='Results'>
         <h3>Results</h3>
-        <Tracklist tracklistState={tracklistState} setTrackListState={setTrackListState} />
+        <Tracklist tracklistState={tracklistState} setTrackListState={setTracklistState} />
       </div>
       <div className='playlist'>
         <h3>Playlist</h3>

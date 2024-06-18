@@ -1,6 +1,5 @@
 import React from "react";
 import Track from "./Track";
-import TrackContainer from "./TrackContainer";
 
 //Expect playlistState from App.js
 function Playlist({ playlistState }) {
