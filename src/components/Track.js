@@ -1,14 +1,16 @@
 import React from "react";
-import Playlist from "./Playlist";
 
-function Track({ key, name, artist, album }) {
+function Track({ key, track, name, artist, addToPlaylist }) {
   return (
     <li key={key}>
       <h4>{name}</h4>
       <p>{artist}</p>
-      <p>{album}</p>
+      <button onClick={() => addToPlaylist(track)}>
+        Add
+      </button>
     </li>
   )
 }
+
 
 export default Track;
