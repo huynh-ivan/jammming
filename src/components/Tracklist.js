@@ -1,30 +1,23 @@
 import React from "react";
 import Track from "./Track";
 
-
 //receive state from App.js
-function Tracklist({ tracklistState, setTrackListState }) {
-  // track containers in the Tracklist should update the state of the playlist
-
-  // need to pass tracklist an "Add to playlist" handler
-
-  // handler should be passed down from App.js
+function Tracklist({ tracklist, addToPlaylist }) {
   return (
-    <ul>
-      {tracklistState.map(item => {
-        return (
-          <li>
-            <div className="trackContainer">
-              <Track
-                name={item.trackName}
-                artist={item.trackArtist}
-                album={item.trackAlbum} />
-            </div>
+    <div>
+      <h3>Results</h3>
+      <ul>
+        {tracklist.map(track =>
+          <li key={track.id}>
+            <h4>{track.trackName}</h4>
+            <p>{track.trackArtist}</p>
+            <button onClick={() => addToPlaylist(track)}>
+              Add
+            </button>
           </li>
-        )
-      })
-      }
-    </ul>
+        )}
+      </ul>
+    </div>
   )
 }
 
