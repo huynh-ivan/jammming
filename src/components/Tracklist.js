@@ -8,13 +8,12 @@ function Tracklist({ tracklist, addToPlaylist }) {
       <h3>Results</h3>
       <ul>
         {tracklist.map(track =>
-          <li key={track.id}>
-            <h4>{track.trackName}</h4>
-            <p>{track.trackArtist}</p>
-            <button onClick={() => addToPlaylist(track)}>
-              Add
-            </button>
-          </li>
+          <Track
+            key={track.id}
+            name={track.trackName}
+            artist={track.trackArtist}
+            track={track}
+            addToPlaylist={addToPlaylist} />
         )}
       </ul>
     </div>
