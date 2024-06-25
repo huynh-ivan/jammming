@@ -1,7 +1,7 @@
 import React from 'react';
 import Track from './Track';
 
-function Tracklist({ tracklist, action }) {
+function Tracklist({ tracklist, action, buttonInnerText }) {
   return (
     <div>
       <ul>
@@ -14,6 +14,7 @@ function Tracklist({ tracklist, action }) {
               album={item.trackAlbum}
               artist={item.trackArtist}
               action={action}
+              buttonInnerText={buttonInnerText}
             />
           );
         })}

@@ -11,7 +11,7 @@ function SearchResults({ results, addToPlaylist }) {
       <Tracklist
         tracklist={results}
         action={addToPlaylist}
-      />
+        buttonInnerText='add' />
     </div>
   )
 }

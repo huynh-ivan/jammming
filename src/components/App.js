@@ -30,6 +30,14 @@ function App() {
     }));
   };
 
+  const removeFromPlaylist = (item) => {
+    setPlaylist((prevPlaylist) => ({
+      ...prevPlaylist,
+      tracklist: prevPlaylist.tracklist.filter((track) => track.id !== item.id)
+    }
+    ))
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -44,7 +52,8 @@ function App() {
         results={results}
         addToPlaylist={addToPlaylist} />
       <Playlist
-        playlist={playlist} />
+        playlist={playlist}
+        removeFromPlaylist={removeFromPlaylist} />
     </div>
   );
 }
