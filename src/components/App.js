@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchBtn from './SearchBtn';
 import SearchResults from './SearchResults';
-import Tracklist from './Tracklist';
-import Playlist from './Playlist.js'
+import Playlist from './Playlist';
+
 import { mockTracks } from '../MockData/MockData';
 
 
@@ -11,14 +11,24 @@ function App() {
   const [userQuery, setUserQuery] = useState('');
 
 
-
-  const [tracklist, setTracklist] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
+  const [results, setResults] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTracklist(mockTracks);
+    setResults(mockTracks);
   }
+
+  const [playlist, setPlaylist] = useState({
+    name: 'whapps',
+    tracklist: []
+  });
+
+  const addToPlaylist = (item) => {
+    setPlaylist((prevPlaylist) => ({
+      ...prevPlaylist,
+      tracklist: [...prevPlaylist.tracklist, item]
+    }));
+  };
 
   return (
     <div>
@@ -31,10 +41,10 @@ function App() {
         <SearchBtn type="submit" />
       </form>
       <SearchResults
-        tracklist={tracklist}
-        setTracklist={setTracklist}
-        playlist={playlist}
-        setPlaylist={setPlaylist} />
+        results={results}
+        addToPlaylist={addToPlaylist} />
+      <Playlist
+        playlist={playlist} />
     </div>
   );
 }
