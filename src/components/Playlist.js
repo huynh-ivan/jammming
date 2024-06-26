@@ -2,10 +2,10 @@ import React from "react";
 import Tracklist from "./Tracklist";
 
 
-function Playlist({ playlist, removeFromPlaylist }) {
+function Playlist({ playlist, removeFromPlaylist, setPlaylistName }) {
   return (
     <div>
-      <h3>{playlist.name}</h3>
+      <input onChange={(e) => setPlaylistName(e.target.value)}>{playlist.name.value}</input>
       <Tracklist
         tracklist={playlist.tracklist}
         action={removeFromPlaylist}

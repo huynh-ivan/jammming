@@ -38,6 +38,13 @@ function App() {
     ))
   }
 
+  const setPlaylistName = (newName) => {
+    setPlaylist(prevPlaylist => ({
+      ...prevPlaylist,
+      name: { newName }
+    }))
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -53,6 +60,7 @@ function App() {
         addToPlaylist={addToPlaylist} />
       <Playlist
         playlist={playlist}
+        setPlaylistName={setPlaylistName}
         removeFromPlaylist={removeFromPlaylist} />
     </div>
   );
