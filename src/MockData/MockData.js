@@ -3,7 +3,8 @@ const mockTracks = [
     trackName: 'All You Need to Know',
     trackArtist: 'Gryffin',
     trackAlbum: 'Gravity',
-    id: 0
+    id: 0,
+    uri: 'https://www.sampleuri.com/uri/shdfihsdfuhsdiuh'
   },
   {
     trackName: 'Need Your Love',
@@ -109,4 +110,11 @@ const mockTracks = [
   },
 ]
 
-export { mockTracks };
+const mockPlaylist = [
+  'https://open.spotify.com/track/0Ev562zA4pmUsBqjxsxxdx?si=484f84f424e341b4',
+  'https://open.spotify.com/track/2zh01m4PiHaZz4BAm0NRxs?si=e881550c30cc4bdf',
+  'https://open.spotify.com/track/07QIetdCyAEox3Q5qqJT43?si=8a3447ca925643c3'
+]
+
+
+export { mockTracks, mockPlaylist };
