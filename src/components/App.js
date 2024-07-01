@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchBtn from './SearchBtn';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 
-import { mockTracks } from '../MockData/MockData';
+import { mockTracks, mockPlaylist } from '../MockData/MockData';
 
 
 function App() {
+  //State & functions for user query string
   const [userQuery, setUserQuery] = useState('');
 
-
+  // Search Results
   const [results, setResults] = useState([]);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     setResults(mockTracks);
   }
 
+  //Playlist is an object
   const [playlist, setPlaylist] = useState({
     name: 'whapps',
     tracklist: []
@@ -34,16 +35,16 @@ function App() {
     setPlaylist((prevPlaylist) => ({
       ...prevPlaylist,
       tracklist: prevPlaylist.tracklist.filter((track) => track.id !== item.id)
-    }
-    ))
+    }));
   }
 
   const setPlaylistName = (newName) => {
     setPlaylist(prevPlaylist => ({
       ...prevPlaylist,
       name: { newName }
-    }))
+    }));
   }
+
 
   return (
     <div>
@@ -51,8 +52,7 @@ function App() {
         <h1>Jammming!</h1>
         <SearchBar
           type="Search"
-          userQuery={userQuery}
-          onChange={setUserQuery} />
+          setUserQuery={setUserQuery} />
         <SearchBtn type="submit" />
       </form>
       <SearchResults
