@@ -15,6 +15,7 @@ function Tracklist({ tracklist, action, buttonInnerText }) {
               artist={item.trackArtist}
               action={action}
               buttonInnerText={buttonInnerText}
+              uri={item.uri}
             />
           );
         })}

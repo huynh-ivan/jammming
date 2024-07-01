@@ -1,6 +1,6 @@
 import React from "react";
 
-function Track({ key, track, name, artist, action, album, buttonInnerText }) {
+function Track({ key, track, name, artist, action, album, buttonInnerText, uri }) {
   return (
     <li key={key}>
       <h4>{name}</h4>
