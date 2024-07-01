@@ -1,23 +1,27 @@
-import React from "react";
-import Track from "./Track";
+import React from 'react';
+import Track from './Track';
 
-//receive state from App.js
-function Tracklist({ tracklist, addToPlaylist }) {
+function Tracklist({ tracklist, action, buttonInnerText }) {
   return (
     <div>
-      <h3>Results</h3>
       <ul>
-        {tracklist.map(track =>
-          <Track
-            key={track.id}
-            name={track.trackName}
-            artist={track.trackArtist}
-            track={track}
-            addToPlaylist={addToPlaylist} />
-        )}
+        {tracklist.map((item) => {
+          return (
+            <Track
+              key={item.id}
+              track={item}
+              name={item.trackName}
+              album={item.trackAlbum}
+              artist={item.trackArtist}
+              action={action}
+              buttonInnerText={buttonInnerText}
+              uri={item.uri}
+            />
+          );
+        })}
       </ul>
     </div>
-  )
+  );
 }
 
 export default Tracklist;

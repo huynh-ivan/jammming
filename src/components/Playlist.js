@@ -1,22 +1,15 @@
 import React from "react";
-import Track from "./Track";
-import AddButton from "./AddButton";
+import Tracklist from "./Tracklist";
 
-//Expect playlistState from App.js
-function Playlist({ playlist }) {
+
+function Playlist({ playlist, removeFromPlaylist, setPlaylistName }) {
   return (
     <div>
-      <h3>Playlist</h3>
-      <ul>
-        {playlist.map(track =>
-        (
-          <li key={track.id}>
-            <h4>{track.trackName}</h4>
-            <p>{track.trackArtist}</p>
-          </li>
-        )
-        )}
-      </ul>
+      <input onChange={(e) => setPlaylistName(e.target.value)}>{playlist.name.value}</input>
+      <Tracklist
+        tracklist={playlist.tracklist}
+        action={removeFromPlaylist}
+        buttonInnerText='Remove' />
     </div>
   )
 }
