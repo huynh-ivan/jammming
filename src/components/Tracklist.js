@@ -10,9 +10,9 @@ function Tracklist({ tracklist, action, buttonInnerText }) {
             <Track
               key={item.id}
               track={item}
-              name={item.trackName}
-              album={item.trackAlbum}
-              artist={item.trackArtist}
+              name={item.name}
+              album={item.album}
+              artist={item.artist}
               action={action}
               buttonInnerText={buttonInnerText}
               uri={item.uri}
