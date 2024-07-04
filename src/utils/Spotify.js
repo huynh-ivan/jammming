@@ -50,10 +50,21 @@ const Spotify = {
         Authorization: `Bearer ${accessToken}`
       }
     })
-      .then(response => response.json())
-      .then(data => console.log(data))
+      .then(response => {
+        return response.json()
+      })
+      .then(jsonResponse => {
+        console.log(jsonResponse)
+        return jsonResponse.tracks.items.map(item => ({
+          id: item.id,
+          album: item.album.name,
+          artist: item.album.artists[0].name,
+          name: item.name,
+          uri: item.uri
+        }));
+      });
   }
 
-}
+};
 
 export default Spotify;
