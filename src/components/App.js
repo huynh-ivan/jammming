@@ -18,7 +18,6 @@ function App() {
     Spotify.search(userQuery).then(setResults)
   }, [])
 
-  //Playlist is an object
   const [playlistName, setPlaylistName] = useState('New Playlist')
 
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -43,27 +42,35 @@ function App() {
   const updatePlaylistName = useCallback((newName) => {
     setPlaylistName(newName);
   }, []);
-}
+
+  const savePlaylist = useCallback(() => {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+      setPlaylistName('New PLaylist');
+      setPlaylistTracks([]);
+    });
+  }, [playlistName, playlistTracks]);
 
 
-return (
-  <div>
-    <h1>Jammming!</h1>
-    <SearchBar
-      buttonType="submit"
-      type="search"
-      setUserQuery={setUserQuery}
-      handleSubmit={handleSubmit}
-      onSearch={search} />
-    <SearchResults
-      results={results}
-      addToPlaylist={addToPlaylist} />
-    <Playlist
-      playlist={playlist}
-      setPlaylistName={setPlaylistName}
-      removeFromPlaylist={removeFromPlaylist} />
-  </div>
-);
-}
+  return (
+    <div>
+      <h1>Jammming!</h1>
+      <div className='main-app'>
+        <SearchBar onSearch={search} />
+        <div className='App-playlist'>
+          <SearchResults
+            results={results}
+            onAdd={addTrack} />
+          <Playlist
+            playlistName={playlistName}
+            playlistTracks={playlistTracks}
+            onNameChange={updatePlaylistName}
+            onRemove={removeTrack}
+            onSave={savePlaylist} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default App;
