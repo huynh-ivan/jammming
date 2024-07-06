@@ -15,13 +15,9 @@ function SearchBar(props) {
   return (
     <div className="search-bar">
       <input
-        type='search'
         onChange={handleChange}
         placeholder="Search for a song!" />
-      <button type={props.buttonType} onClick={props.handleSubmit} className="search-btn">
-        Search
-      </button>
-      <button onClick={handleSearch}>View Console</button>
+      <button onClick={handleSearch} className="SearchButton">Search</button>
     </div>
 
   );
