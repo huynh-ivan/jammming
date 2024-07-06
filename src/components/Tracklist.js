@@ -1,25 +1,20 @@
 import React from 'react';
 import Track from './Track';
 
-function Tracklist({ tracklist, action, buttonInnerText }) {
+function Tracklist(props) {
   return (
-    <div>
-      <ul>
-        {tracklist.map((item) => {
-          return (
-            <Track
-              key={item.id}
-              track={item}
-              name={item.name}
-              album={item.album}
-              artist={item.artist}
-              action={action}
-              buttonInnerText={buttonInnerText}
-              uri={item.uri}
-            />
-          );
-        })}
-      </ul>
+    <div className='TrackList'>
+      {props.tracks.map((track) => {
+        return (
+          <Track
+            track={track}
+            key={track.id}
+            onAdd={props.onAdd}
+            isRemoval={props.isRemoval}
+            onRemove={props.onRemove}
+          />
+        )
+      })}
     </div>
   );
 }
