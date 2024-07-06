@@ -1,9 +1,9 @@
 import React from 'react';
 import Track from './Track';
 
-function Tracklist(props) {
+const Tracklist = (props) => {
   return (
-    <div className='TrackList'>
+    <div className="TrackList">
       {props.tracks.map((track) => {
         return (
           <Track
@@ -13,7 +13,7 @@ function Tracklist(props) {
             isRemoval={props.isRemoval}
             onRemove={props.onRemove}
           />
-        )
+        );
       })}
     </div>
   );

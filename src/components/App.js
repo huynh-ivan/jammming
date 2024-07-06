@@ -9,13 +9,9 @@ import { mockTracks, mockPlaylist } from '../MockData/MockData';
 function App() {
   // Search Results
   const [results, setResults] = useState([]);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setResults(mockTracks);
-  }
 
-  const search = useCallback((userQuery) => {
-    Spotify.search(userQuery).then(setResults)
+  const search = useCallback((term) => {
+    Spotify.search(term).then(setResults)
   }, [])
 
   const [playlistName, setPlaylistName] = useState('New Playlist')
@@ -35,7 +31,7 @@ function App() {
 
   const removeTrack = useCallback((track) => {
     setPlaylistTracks((prevTracks) =>
-      prevTracks.filter((currentTrack) => currentTrack.id === track.id)
+      prevTracks.filter((currentTrack) => currentTrack.id !== track.id)
     );
   }, [])
 

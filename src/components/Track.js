@@ -36,7 +36,7 @@ function Track(props) {
       <div className="TrackInfo">
         <h3>{props.track.name}</h3>
         <p>
-          {props.tracks.artist} | {props.track.album}
+          {props.track.artist} | {props.track.album}
         </p>
       </div>
       {renderAction()}
