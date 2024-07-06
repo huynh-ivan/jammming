@@ -1,21 +1,19 @@
 import React from "react";
 
 const clientId = 'e92b697cdd094a5988e91a83b852f3f4';
-const redirectUri = 'http://localhost:3000/callback';
+const redirectUri = 'http://localhost:3000/';
 let accessToken;
 
 const Spotify = {
-  //Spotify is a utility object containing methods for 
-  //Getting an access token via implicit grant
-  //Making requests to the Search API
-  //Making requests to the Playlist API
-
-
   //Get access token
   getAccessToken() {
+    if (accessToken) {
+      return accessToken;
+    }
+
     const baseUrl = 'https://accounts.spotify.com/authorize?'
     const responseType = 'token'
-    const fullUrl = `${baseUrl}client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}`
+    const fullUrl = `${baseUrl}client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=playlist-modify-public`
 
     const tokenMatch = window.location.href.match(/access_token=([^&]*)/);
     const expireMatch = window.location.href.match(/expires_in=([^&]*)/);
@@ -88,7 +86,7 @@ const Spotify = {
         return fetch(`https://api.spotify.com/v1/users${userId}/playlists/${playlistId}/tracks`, {
           headers: headers,
           method: 'POST',
-          body: json.stringify({ uris: trackUris })
+          body: JSON.stringify({ uris: trackUris })
         });
       });
     });
