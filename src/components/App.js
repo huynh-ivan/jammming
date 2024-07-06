@@ -7,16 +7,7 @@ import { mockTracks, mockPlaylist } from '../MockData/MockData';
 
 
 function App() {
-
-  // useEffect(() => {
-  //   Spotify.getAccessToken();
-  // }, [])
-
-  //State & functions for user query string
-  const [userQuery, setUserQuery] = useState('');
-
   // Search Results
-
   const [results, setResults] = useState([]);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,51 +19,51 @@ function App() {
   }, [])
 
   //Playlist is an object
-  const [playlist, setPlaylist] = useState({
-    name: 'whapps',
-    tracklist: []
-  });
+  const [playlistName, setPlaylistName] = useState('New Playlist')
 
-  const addToPlaylist = (item) => {
-    setPlaylist((prevPlaylist) => ({
-      ...prevPlaylist,
-      tracklist: [...prevPlaylist.tracklist, item]
-    }));
-  };
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const removeFromPlaylist = (item) => {
-    setPlaylist((prevPlaylist) => ({
-      ...prevPlaylist,
-      tracklist: prevPlaylist.tracklist.filter((track) => track.id !== item.id)
-    }));
-  }
+  const addTrack = useCallback(
+    (track) => {
+      if (playlistTracks.some((savedTrack) => savedTrack.id === track.id)) // check for dupe tracks in current playlist
+        return;
 
-  const setPlaylistName = (newName) => {
-    setPlaylist(prevPlaylist => ({
-      ...prevPlaylist,
-      name: { newName }
-    }));
-  }
-
-
-  return (
-    <div>
-      <h1>Jammming!</h1>
-      <SearchBar
-        buttonType="submit"
-        type="search"
-        setUserQuery={setUserQuery}
-        handleSubmit={handleSubmit}
-        onSearch={search} />
-      <SearchResults
-        results={results}
-        addToPlaylist={addToPlaylist} />
-      <Playlist
-        playlist={playlist}
-        setPlaylistName={setPlaylistName}
-        removeFromPlaylist={removeFromPlaylist} />
-    </div>
+      setPlaylistTracks((prevTracks) => [...prevTracks, track]);
+    },
+    [playlistTracks]
   );
+
+
+  const removeTrack = useCallback((track) => {
+    setPlaylistTracks((prevTracks) =>
+      prevTracks.filter((currentTrack) => currentTrack.id === track.id)
+    );
+  }, [])
+
+  const updatePlaylistName = useCallback((newName) => {
+    setPlaylistName(newName);
+  }, []);
+}
+
+
+return (
+  <div>
+    <h1>Jammming!</h1>
+    <SearchBar
+      buttonType="submit"
+      type="search"
+      setUserQuery={setUserQuery}
+      handleSubmit={handleSubmit}
+      onSearch={search} />
+    <SearchResults
+      results={results}
+      addToPlaylist={addToPlaylist} />
+    <Playlist
+      playlist={playlist}
+      setPlaylistName={setPlaylistName}
+      removeFromPlaylist={removeFromPlaylist} />
+  </div>
+);
 }
 
 export default App;
