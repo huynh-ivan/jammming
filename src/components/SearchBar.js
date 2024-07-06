@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 
-function SearchBar({ type, setUserQuery }) {
-  const handleChange = (event) => {
-    console.log(event.target.value);
-    setUserQuery(event.target.value);
-  }
+function SearchBar(props) {
+  const [term, setTerm] = useState('')
+
+  const handleChange = useCallback((event) => {
+    setTerm(event.target.value)
+  })
+
+  const handleSearch = useCallback(() => {
+    props.onSearch(term);
+  }, [props.onSearch, term])
+
 
   return (
-    <input
-      type={type}
-      onChange={handleChange}
-      placeholder="Search for a song!" />
+    <div className="search-bar">
+      <input
+        onChange={handleChange}
+        placeholder="Search for a song!" />
+      <button onClick={handleSearch} className="SearchButton">Search</button>
+    </div>
+
   );
 }
 

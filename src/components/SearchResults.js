@@ -4,14 +4,13 @@ import Tracklist from "./Tracklist";
 // this component stores the function(s) that update both the tracklist and playlist. 
 // it is stateless in that it doesn't manage state itself
 
-function SearchResults({ results, addToPlaylist }) {
+function SearchResults(props) {
   return (
-    <div>
+    <div className="SearchResults">
       <h3>Search Results</h3>
       <Tracklist
-        tracklist={results}
-        action={addToPlaylist}
-        buttonInnerText='add' />
+        tracks={props.results}
+        onAdd={props.onAdd} />
     </div>
   )
 }
