@@ -1,0 +1,27 @@
+.Track {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  align-items: center;
+  padding: 4px;
+  width: 80%;
+}
+
+.Track h3 {
+  font-size: 1.15rem;
+}
+
+.Track button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.TrackInfo {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.TrackInfo p {
+  font-size: 1rem;
+}

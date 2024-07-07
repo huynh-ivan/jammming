@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 import Spotify from '../utils/Spotify';
-import { mockTracks, mockPlaylist } from '../MockData/MockData';
+
+import "../css_modules/App.css";
 
 
 function App() {
