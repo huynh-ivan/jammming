@@ -1,5 +1,7 @@
 import React, { useCallback } from "react";
 
+import "../css_modules/Track.css"
+
 function Track(props) {
 
   const addTrack = useCallback(

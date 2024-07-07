@@ -1,6 +1,8 @@
 import React from 'react';
 import Track from './Track';
 
+import '../css_modules/Tracklist.css'
+
 const Tracklist = (props) => {
   return (
     <div className="TrackList">

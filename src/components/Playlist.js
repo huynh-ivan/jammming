@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import Tracklist from "./Tracklist";
 
+import "../css_modules/Playlist.css"
+
 
 function Playlist(props) {
   const handleChange = useCallback(
