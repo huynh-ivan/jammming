@@ -1,0 +1,23 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
+html {
+  font-size: 16px;
+}
+
+
+
+.main-app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.App-playlist {
+  display: flex;
+  flex-direction: column;
+}
